@@ -70,6 +70,10 @@
 
         <!-- Date/Time -->
         <p>Posted on {{ post.created_at }}</p>
+          
+      {% if user.is_authenticated and user == post.author %}
+        <a class="btn btn-secondary" href="/blog/update_post/{{ post.pk }}/">수정하기</a>
+      {% endif %} 
 
         <hr>
 

@@ -2,6 +2,12 @@
 
 {% block main_area %}
 
+    {% if user.is_authenticated %}
+        {% if user.is_staff or user.is_superuser %}
+            <a class="btn btn-secondary" href="/blog/create_post/">글쓰기</a>
+        {% endif%}
+    {% endif %}
+
     <h1>Blog {% if tag %}
         postings with tag : {{ tag.name }}
     {% endif %}
